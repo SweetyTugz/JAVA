@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ctx="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd ">
+
+	<bean id="SqlBean" class="com.administrate.connection.DataQuery">
+		<property name="searchOrganisation"
+			value="SELECT * FROM ORGANISATION;"></property>
+		<property name="deleteOrganisation"
+			value="DELETE FROM ORGANISATION WHERE ID=?"></property>
+		<property name="insertOrganisation"
+			value="INSERT INTO ORGANISATION(ORG_NAME) VALUES(?)"></property>
+		<property name="updateOrganisation"
+			value="UPDATE ORGANISATION SET ORG_NAME=? WHERE ID=?"></property>
+
+		<property name="searchPerson" value="SELECT * FROM PERSON"></property>
+		<property name="deletePerson"
+			value="DELETE FROM PERSON WHERE PERSON_ID=?"></property>
+		<property name="insertPerson"
+			value="INSERT INTO PERSON(PERSON_ID,PERSON_NAME,ORGANISATION_ID,ADDRESS,PHONE_NUMBER) VALUES(?,?,?,?,?)"></property>
+		<property name="updatePerson"
+			value="UPDATE PERSON SET PERSON_NAME=?,ORGANISATION_ID=?,ADDRESS=?,PHONE_NUMBER=? WHERE PERSON_ID=?"></property>
+
+	</bean>
+
+
+</beans>
